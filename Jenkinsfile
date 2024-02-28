@@ -9,9 +9,8 @@ pipeline {
 
     stage('docker image') {
       steps {
-        dir(path: 'ex1') {
-          sh 'docker build -t ex1flaskprod .'
-        }
+        
+          sh 'docker build -t ex1flaskprod ./ex1'
 
       }
     }
