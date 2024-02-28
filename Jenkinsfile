@@ -6,10 +6,14 @@ pipeline {
         deleteDir()
       }
     }
-
+    stage('git clone') {
+            steps {
+                sh 'git clone https://github.com/chaimco579/ex1.git'
+            }
+        }
     stage('docker image') {
       steps {
-        sh 'docker build -t ex1flaskprod .'
+        sh 'docker build -t ex1flaskprod ./ex1'
       }
     }
 
