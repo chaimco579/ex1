@@ -9,7 +9,7 @@ pipeline {
 
     stage('docker image') {
       steps {
-        sh 'docker build -t ex1flaskprod ./ex1'
+        sh 'docker build -t ex1flaskprod .'
       }
     }
 
