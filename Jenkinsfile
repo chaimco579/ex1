@@ -10,7 +10,6 @@ pipeline {
     stage('docker image') {
       steps {
         dir(path: 'ex1') {
-          sh 'docker rmi ex1flaskprod'
           sh 'docker build -t ex1flaskprod .'
         }
 
@@ -25,7 +24,6 @@ pipeline {
 
     stage('Create and Run Container') {
       steps {
-        sh 'docker rm ex1flskprodcntr'
         sh 'docker run -dit -p 5000:5000 --name ex1flskprodcntr ex1flaskprod'
       }
     }
