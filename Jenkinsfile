@@ -11,7 +11,6 @@ pipeline {
         stage('docker image') {
             steps {
                 dir('ex1') {
-                    sh 'docker rmi ex1flaskft'
                     sh 'docker build -t ex1flaskft .'
                 }
             }
@@ -27,7 +26,6 @@ pipeline {
             steps {
                 // Assuming flask-app as image name and flask-container as container name
                 // Change 5000:5000 if your app listens on a different port
-                sh 'docker rm ex1flskftcntr'
                 sh 'docker run -dit -p 5001:5000 --name ex1flskftcntr ex1flaskft'
             }
         }
